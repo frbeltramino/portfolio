@@ -19,5 +19,9 @@ export const blueTheme = createTheme({
       fontWeight: 500,
       color: "#ffffff", // ✅ Ahora sí se aplica
     },
+    altBody1: {
+      fontSize: '1.125rem',
+    }
   },
+   
 })

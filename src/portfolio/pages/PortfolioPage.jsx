@@ -27,7 +27,8 @@ import {
   ListItemIcon,
   Avatar,
   Snackbar,
-  Alert
+  Alert,
+  Grow
 } from "@mui/material"
 import {
   GitHub as GitHubIcon,
@@ -41,13 +42,22 @@ import {
 import InfoOutlineIcon from '@mui/icons-material/InfoOutline';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DownloadIcon from '@mui/icons-material/Download';
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import Zoom from '@mui/material/Zoom';
+import { useInView } from "../../hooks/useInView"
+import { PaperComponent } from "../../components/PaperComponent"
+import { useScrollTriggerOnce } from '../../hooks/useScrollTriggerOnce';
 
 export const PortfolioPage = () => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [experienceRef, isExperienceInView] = useInView();
+  const [professionalRef, isProfessionalInView] = useInView();
+  const [technologiesRef, isTechnologiesInView] = useInView();
+  const [projectsRef, isProjectsInView] = useInView();
+
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
@@ -58,9 +68,10 @@ export const PortfolioPage = () => {
   }
 
   const navItems = [
-    { name: "Experiencia", id: "experience", icon: <WorkIcon /> },
-    { name: "Proyectos", id: "projects", icon: <CodeIcon /> },
     { name: "Sobre mí", id: "professional", icon: <InfoOutlineIcon /> },
+    { name: "Experiencia", id: "experience", icon: <WorkIcon /> },
+    { name: "Tecnologías", id: "technologies", icon: <CodeIcon /> },
+    { name: "Proyectos", id: "projects", icon: <CodeIcon /> },
   ]
 
   const handleNavClick = (id) => {
@@ -108,7 +119,7 @@ export const PortfolioPage = () => {
 
   const projects = [
     {
-      title: "TuTurnoApp",
+      title: "TuTurno-App",
       description:[
         "Una Aplicación web desarrollada con React y bootstrap que permite a los usuarios pedir un turno en una veterinaria.",
         "Uso de envío de OTP para el login del usuario vía email.",
@@ -120,14 +131,18 @@ export const PortfolioPage = () => {
       demo: "https://tuturno-app.netlify.app/"
     },
     {
-      title: "TuTurnoAdmin",
+      title: "TuTurno-Admin",
       description:[
         "Una Aplicación web desarrollada con React y MaterialUI que permite a los administradores gestionar turnos, servicios, profesionales y feriados.",
       ],
-      image: "/tuTurnoApp.jpg",
+      image: "/tuTurnoAdmin.jpg",
       repo: "https://github.com/frbeltramino/tu-turno-admin",
       demo: "https://tuturno-admin.netlify.app/auth/login"
     }
+  ]
+
+  const technologies = [
+    "JavaScript, HTML, CSS, Visualizer Framework, Postman (APIs REST), SQL básico (insert, select, update, create table), Git (versionado de código), Jira (gestión ágil), React Js, MongoDB, Express."
   ]
 
   return (
@@ -163,16 +178,16 @@ export const PortfolioPage = () => {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile
+            keepMounted: true, 
           }}
           sx={{
-      display: { xs: "block", md: "none" },
-      "& .MuiDrawer-paper": {
-        boxSizing: "border-box",
-        width: 240,
-        bgcolor: "altSecondary.main", // 👈 acá aplicás el color del tema
-        color: "white", // opcional, si querés que el texto sea blanco
-      }}
+            display: { xs: "block", md: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: 240,
+              bgcolor: "altSecondary.main",
+              color: "white", 
+          }}
     }
         >
           {drawer}
@@ -228,7 +243,7 @@ export const PortfolioPage = () => {
               </IconButton>
             </Box>
             <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 4 }}>
-             <a href="https://drive.google.com/file/d/1K_7Cbs0eRLdab99kQHGR0VaOSkzut-yk/view" target="_blank" rel="noopener noreferrer">
+             <a href="/Federico Beltramino - CV.pdf" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="contained"
                 color="primary"
@@ -268,29 +283,23 @@ export const PortfolioPage = () => {
         </Box>
 
           {/* Professional Perfil */}
-        <Box id="professional" sx={{ py: 8, bgcolor: "altSecondary.main" }}>
-          <Container maxWidth="md">
-            <Typography variant="h3" component="h2" gutterBottom align="center" mb={4}>
-              Perfil Profesional 
-            </Typography>
-            <Grid container spacing={4}>
-              <Paper elevation={2} sx={{ p: 3, bgcolor: "primary.main"}}>
-             <Typography variant="body1" gutterBottom>
-                Desarrollador de Software con más de 6 años de experiencia en proyectos de aplicaciones bancarias web y mobile.
-                <br/>
-                <br/>
-                Experto en tecnologías Frontend como JavaScript, HTML y CSS, 
-                consumo de servicios REST y metodologías ágiles (Scrum/Kanban). Apasionado por el 
-                aprendizaje continuo, actualmente perfeccionando habilidades en React, Express y 
-                MongoDB, y mejorando el inglés de manera activa. 
-              </Typography>
-              </Paper>
-            </Grid>
-          </Container>
-        </Box>
+          <PaperComponent
+            paperId="professional"
+            paperTitle="Perfil Profesional "
+            paperDescription = {[
+             "Experiencia en desarrollo de software con más de 6 años de experiencia en proyectos de aplicaciones bancarias web y mobile.",
+             "Experto en tecnologías Frontend como JavaScript, HTML y CSS, consumo de servicios REST y metodologías ágiles (Scrum/Kanban). Apasionado por el aprendizaje continuo, actualmente perfeccionando habilidades en React, Express y MongoDB, y mejorando el inglés de manera activa."
+            ]}
+            paperRef={professionalRef}
+            isPaperInView={isProfessionalInView}
+          />
 
         {/* Experience Section */}
-        <Box id="experience" sx={{ py: 8, bgcolor: "altSecondary.main" }}>
+        <Box id="experience" sx={{ 
+          py: 8, 
+          bgcolor: "altSecondary.main" }}
+          ref={experienceRef}>
+          <Zoom in={isExperienceInView} style={{ transitionDelay: isExperienceInView ? '500ms' : '0ms' }}>  
           <Container maxWidth="md">
             <Typography variant="h3" component="h2" gutterBottom align="center" mb={4}>
               Experiencia
@@ -308,7 +317,7 @@ export const PortfolioPage = () => {
                     {
                      exp.description.map( (desc, index) => (
                         <ul>
-                          <li><Typography variant="body1">{desc}</Typography></li>
+                          <li><Typography variant="altBody1">{desc}</Typography></li>
                         </ul>
                       )) 
                     }
@@ -317,15 +326,34 @@ export const PortfolioPage = () => {
               ))}
             </Grid>
           </Container>
+          </Zoom>
         </Box>
+        
 
+
+        {/* Technologies Section */}
+        <PaperComponent
+          paperId="technologies"
+          paperTitle="Tecnologías y herramientas"
+          paperDescription={technologies}
+          paperRef={technologiesRef}
+          isPaperInView={isTechnologiesInView}
+        />
+    
         {/* Projects Section */}
-        <Box id="projects" sx={{ py: 8,  bgcolor: "altSecondary.main"}}>
+        <Box id="projects" sx={{ py: 8,  bgcolor: "altSecondary.main"}} ref={projectsRef}>
+          <Grow
+            in={isProjectsInView}
+            style={{ transformOrigin: '0 0 0' }}
+            {...(isProjectsInView ? { timeout: 1000 } : {})}
+          >
+      
           <Container maxWidth="md">
             <Typography variant="h3" component="h2" gutterBottom align="center" mb={4}>
               Proyectos
             </Typography>
-            <Grid container spacing={4}>
+            
+            <Grid container spacing={4} >
               {projects.map((project, index) => (
                 <Grid item key={index} xs={12} sm={6} md={4} >
                   <Card
@@ -338,11 +366,23 @@ export const PortfolioPage = () => {
                       bgcolor: 'primary.main',
                     }}
                   >
-                    <CardMedia component="img" image={project.image} alt={project.title} height="200" />
+                    
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Typography gutterBottom variant="h5" component="h3">
                         {project.title}
                       </Typography>
+                      <CardMedia
+                        component="img"
+                        image={project.image}
+                        alt={project.title}
+                        sx={{
+                          width: '100%',
+                          height: 200,
+                          objectFit: 'cover', // <- hace que se vea completa
+                          objectPosition: 'center',
+                          mt: 1,
+                        }}
+                      />
                       {
                          project.description.map( (desc, index) => (
                           <ul>
@@ -365,6 +405,7 @@ export const PortfolioPage = () => {
                       <Button 
                         size="small" color="#ffffff"
                          href={project.demo}
+                         target="_blank"
                       >
                         Demo
                       </Button>
@@ -374,6 +415,8 @@ export const PortfolioPage = () => {
               ))}
             </Grid>
           </Container>
+            
+           </Grow>
         </Box>
       </Box>
 
@@ -390,7 +433,7 @@ export const PortfolioPage = () => {
       <Box component="footer" sx={{ py: 3, px: 2, mt: "auto", backgroundColor: "primary.main", color: "white" }}>
         <Container maxWidth="sm">
           <Typography variant="body1" align="center">
-            © {new Date().getFullYear()} Federico Beltramino. Todos los derechos reservados.
+            © {new Date().getFullYear()} Federico Beltramino
           </Typography>
         </Container>
       </Box>
