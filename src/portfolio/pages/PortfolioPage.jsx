@@ -146,6 +146,7 @@ export const PortfolioPage = () => {
   ]
 
   return (
+    
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       {/* Header/Navbar */}
       <AppBar position="sticky" color="primary">
