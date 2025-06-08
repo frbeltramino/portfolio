@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles.css'
-import { PortfolioApp } from './portfolioApp'
+import { PortfolioApp } from './PortfolioApp'
 import { BrowserRouter } from 'react-router'
 
 
