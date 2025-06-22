@@ -52,6 +52,7 @@ import { PaperComponent } from "../../components/PaperComponent"
 import { useScrollTriggerOnce } from '../../hooks/useScrollTriggerOnce';
 import { Trans, useTranslation } from "react-i18next"
 import { TranslateDropdown } from "../../components/TranslateDropdown"
+import { DownloadPDFFile } from "../../components/DownloadPDFFile"
 
 export const PortfolioPage = () => {
   const theme = useTheme()
@@ -206,19 +207,7 @@ export const PortfolioPage = () => {
                 <ContentCopyIcon fontSize="small" />
               </IconButton>
             </Box>
-            <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 4 }}>
-             <a href="/Federico Beltramino - CV.pdf" target="_blank" rel="noopener noreferrer">
-              <Button
-                variant="contained"
-                color="primary"
-                size="small"
-                startIcon={<DownloadIcon />}
-                sx={{ color: "white" }}
-              >
-                {t("downloadCV")}
-              </Button>
-            </a>
-            </Box>
+            <DownloadPDFFile />
             <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 4 }}>
               <IconButton aria-label="github" href="https://github.com/frbeltramino?tab=repositories" target="_blank" sx={{  color:"text.secondary" }}>
                 <GitHubIcon fontSize="large" />
