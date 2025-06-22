@@ -55,7 +55,7 @@
     { "name": "CSS", "image": "/icons/css3.svg" },
     { "name": "Postman (APIs REST)", "image": "/icons/postman.svg" },
     { "name": "Visualizer Framework", "image": "/icons/visualizer.png" },
-    { "name": "MySQL (insert, select, update, create table)", "image": "/icons/mysql.svg" },
+    { "name": "MySQL", "image": "/icons/mysql.svg" },
     { "name": "Git (control de versiones)", "image": "/icons/git.svg" },
     { "name": "Jira (gestión ágil)", "image": "/icons/jira.svg" },
     { "name": "React Js", "image": "/icons/react.svg" },

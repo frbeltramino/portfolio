@@ -50,11 +50,13 @@ export const PaperComponent = ({
                 ))}
               </Grid>
             ) : (
-              <Box component="ul" sx={{ pl: 2 }}>
+              <Box sx={{ pl: 2 }}>
                 {paperDescription.map((desc, index) => (
-                  <li key={index}>
-                    <Typography variant="altBody1">{desc}</Typography>
-                  </li>
+                   <ul key={index}>
+                    <li>
+                      <Typography variant="altBody1">{desc}</Typography>
+                    </li>
+                  </ul>
                 ))}
               </Box>
             )}
