@@ -40,13 +40,18 @@ import {
   Email
 } from "@mui/icons-material"
 import InfoOutlineIcon from '@mui/icons-material/InfoOutline';
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import FolderOpenIcon from '@mui/icons-material/FolderOpen';
+import MemoryIcon from '@mui/icons-material/Memory';
 import DownloadIcon from '@mui/icons-material/Download';
 import { useEffect, useRef, useState } from "react"
 import Zoom from '@mui/material/Zoom';
 import { useInView } from "../../hooks/useInView"
 import { PaperComponent } from "../../components/PaperComponent"
 import { useScrollTriggerOnce } from '../../hooks/useScrollTriggerOnce';
+import { Trans, useTranslation } from "react-i18next"
+import { TranslateDropdown } from "../../components/TranslateDropdown"
 
 export const PortfolioPage = () => {
   const theme = useTheme()
@@ -57,7 +62,7 @@ export const PortfolioPage = () => {
   const [professionalRef, isProfessionalInView] = useInView();
   const [technologiesRef, isTechnologiesInView] = useInView();
   const [projectsRef, isProjectsInView] = useInView();
-
+  const { t } = useTranslation()
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
@@ -66,12 +71,12 @@ export const PortfolioPage = () => {
   const handleSnackbarClose = (bool) => {
     setOpenSnackbar(bool);
   }
-
+  
   const navItems = [
-    { name: "Sobre mí", id: "professional", icon: <InfoOutlineIcon /> },
-    { name: "Experiencia", id: "experience", icon: <WorkIcon /> },
-    { name: "Tecnologías", id: "technologies", icon: <CodeIcon /> },
-    { name: "Proyectos", id: "projects", icon: <CodeIcon /> },
+    { name: t("about"), id: "about", icon: <InfoOutlineIcon /> },
+    { name: t("experience"), id: "experience", icon: <WorkOutlineIcon /> },
+    { name: t("technologiesMenu"), id: "technologies", icon: <MemoryIcon /> },
+    { name: t("projectsMenu"), id: "projects", icon: <FolderOpenIcon /> }
   ]
 
   const handleNavClick = (id) => {
@@ -101,49 +106,6 @@ export const PortfolioPage = () => {
     </Box>
   )
 
-  const experiences = [
-    {
-      title: "Desarrollador Frontend",
-      company: "GlobalLogic",
-      period: "Junio 2018 - Presente",
-      description: [
-        "Desarrollo, testing y documentación de funcionalidades bancarias para aplicaciones web y mobile (Android / iOS). ",
-        "Resolución de bugs y soporte a incidencias productivas (hotfixes). ",
-        "Amplio conocimiento en tecnologías específicas del proyecto y reglas de negocio bancarias.",
-        "Mentoría informal a compañeros de equipo en dudas técnicas y funcionales.",
-        " Participación activa en equipos Scrum: planificación, refinamiento, dailies, retrospectivas."
-      ]
-        
-    }
-  ]
-
-  const projects = [
-    {
-      title: "TuTurno-App",
-      description:[
-        "Una Aplicación web desarrollada con React y bootstrap que permite a los usuarios pedir un turno en una veterinaria.",
-        "Uso de envío de OTP para el login del usuario vía email.",
-        "Manejo de base de datos MONGODB con NodeJS Express y Mongoose para guardar la información de los turnos, usuarios, servicios y profesionales.",
-        "Aviso de confirmación de turno por correo electrónico."
-      ],
-      image: "/tuTurnoApp.jpg",
-      repo: "https://github.com/frbeltramino/tu-turno-app",
-      demo: "https://tuturno-app.netlify.app/"
-    },
-    {
-      title: "TuTurno-Admin",
-      description:[
-        "Una Aplicación web desarrollada con React y MaterialUI que permite a los administradores gestionar turnos, servicios, profesionales y feriados.",
-      ],
-      image: "/tuTurnoAdmin.jpg",
-      repo: "https://github.com/frbeltramino/tu-turno-admin",
-      demo: "https://tuturno-admin.netlify.app/auth/login"
-    }
-  ]
-
-  const technologies = [
-    "JavaScript, HTML, CSS, Visualizer Framework, Postman (APIs REST), SQL básico (insert, select, update, create table), Git (versionado de código), Jira (gestión ágil), React Js, MongoDB, Express."
-  ]
 
   return (
     
@@ -199,6 +161,7 @@ export const PortfolioPage = () => {
       <Box component="main" sx={{ flexGrow: 1 }}>
         {/* Hero Section */}
         <Box
+          id="about"
           sx={{
             bgcolor: "altSecondary.main",
             pt: 8,
@@ -218,12 +181,12 @@ export const PortfolioPage = () => {
             </Grid>
             
             <Typography variant="h5" align="center" color="text.secondary" paragraph sx={{ mt: 4 }}>
-              Desarrollador Web Frontend
+              {t("position")}
             </Typography>
             <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", mb: 2 }}>
               <LocationIcon color="action" sx={{ mr: 1, color:"text.secondary" }} />
               <Typography variant="body1" color="text.secondary">
-                La Plata, Buenos Aires, Argentina
+                {t("location")}
               </Typography>
             </Box>
             <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", mb: 2 }}>
@@ -252,7 +215,7 @@ export const PortfolioPage = () => {
                 startIcon={<DownloadIcon />}
                 sx={{ color: "white" }}
               >
-                Descargar CV
+                {t("downloadCV")}
               </Button>
             </a>
             </Box>
@@ -279,6 +242,9 @@ export const PortfolioPage = () => {
                 <Email fontSize="large" />
               </IconButton>
             </Box>
+            <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 4 }}>
+              <TranslateDropdown />
+            </Box>
             
           </Container>
         </Box>
@@ -286,47 +252,57 @@ export const PortfolioPage = () => {
           {/* Professional Perfil */}
           <PaperComponent
             paperId="professional"
-            paperTitle="Perfil Profesional "
-            paperDescription = {[
-             "Experiencia en desarrollo de software con más de 6 años de experiencia en proyectos de aplicaciones bancarias web y mobile.",
-             "Experto en tecnologías Frontend como JavaScript, HTML y CSS, consumo de servicios REST y metodologías ágiles (Scrum/Kanban). Apasionado por el aprendizaje continuo, actualmente perfeccionando habilidades en React, Express y MongoDB, y mejorando el inglés de manera activa."
-            ]}
+            paperTitle={t("professionalProfile")}
+            paperDescription={t("professionalDescription", { returnObjects: true })}
             paperRef={professionalRef}
             isPaperInView={isProfessionalInView}
           />
 
-        {/* Experience Section */}
-        <Box id="experience" sx={{ 
-          py: 8, 
-          bgcolor: "altSecondary.main" }}
-          ref={experienceRef}>
-          <Zoom in={isExperienceInView} style={{ transitionDelay: isExperienceInView ? '500ms' : '0ms' }}>  
-          <Container maxWidth="md">
-            <Typography variant="h3" component="h2" gutterBottom align="center" mb={4}>
-              Experiencia
-            </Typography>
-            <Grid container spacing={4}>
-              {experiences.map((exp, index) => (
-                <Grid item xs={12} key={index}>
-                  <Paper elevation={2} sx={{ p: 3, bgcolor: "primary.main"}}>
-                    <Typography variant="h5" component="h3" gutterBottom>
-                      {exp.title}
-                    </Typography>
-                    <Typography variant="subtitle1" color="text.secondary" gutterBottom>
-                      {exp.company} | {exp.period}
-                    </Typography>
-                    {
-                     exp.description.map( (desc, index) => (
-                        <ul>
-                          <li><Typography variant="altBody1">{desc}</Typography></li>
+        <Box
+          id="experience"
+          sx={{ py: 8, bgcolor: "altSecondary.main" }}
+          ref={experienceRef}
+        >
+          <Zoom
+            in={isExperienceInView}
+            style={{ transitionDelay: isExperienceInView ? "500ms" : "0ms" }}
+          >
+            <Container maxWidth="md">
+              <Typography
+                variant="h3"
+                component="h2"
+                gutterBottom
+                align="center"
+                mb={4}
+              >
+                {t("experience")}
+              </Typography>
+              <Grid container spacing={4}>
+                {t("experiences", { returnObjects: true }).map((exp, index) => (
+                  <Grid item xs={12} key={index}>
+                    <Paper elevation={2} sx={{ p: 3, bgcolor: "primary.main" }}>
+                      <Typography variant="h5" component="h3" gutterBottom>
+                        {exp.title}
+                      </Typography>
+                      <Typography
+                        variant="subtitle1"
+                        color="text.secondary"
+                        gutterBottom
+                      >
+                        {exp.company} | {exp.period}
+                      </Typography>
+                      {exp.description.map((desc, idx) => (
+                        <ul key={idx}>
+                          <li>
+                            <Typography variant="altBody1">{desc}</Typography>
+                          </li>
                         </ul>
-                      )) 
-                    }
-                  </Paper>
-                </Grid>
-              ))}
-            </Grid>
-          </Container>
+                      ))}
+                    </Paper>
+                  </Grid>
+                ))}
+              </Grid>
+            </Container>
           </Zoom>
         </Box>
         
@@ -335,89 +311,81 @@ export const PortfolioPage = () => {
         {/* Technologies Section */}
         <PaperComponent
           paperId="technologies"
-          paperTitle="Tecnologías y herramientas"
-          paperDescription={technologies}
+          paperTitle={t("technologiesTitle")}
+          paperDescription={t("technologiesList", { returnObjects: true })}
           paperRef={technologiesRef}
           isPaperInView={isTechnologiesInView}
         />
     
         {/* Projects Section */}
-        <Box id="projects" sx={{ py: 8,  bgcolor: "altSecondary.main"}} ref={projectsRef}>
+        <Box id="projects" sx={{ py: 8, bgcolor: "altSecondary.main" }} ref={projectsRef}>
           <Grow
             in={isProjectsInView}
-            style={{ transformOrigin: '0 0 0' }}
+            style={{ transformOrigin: "0 0 0" }}
             {...(isProjectsInView ? { timeout: 1000 } : {})}
           >
-      
-          <Container maxWidth="md">
-            <Typography variant="h3" component="h2" gutterBottom align="center" mb={4}>
-              Proyectos
-            </Typography>
-            
-            <Grid container spacing={4} >
-              {projects.map((project, index) => (
-                <Grid item key={index} xs={12} sm={6} md={4} >
-                  <Card
-                    sx={{
-                      width: '100%',
-                      height: '100%',
-                      minHeight: 400, // o el valor que se vea mejor en tu layout
-                      display: 'flex',
-                      flexDirection: 'column',
-                      bgcolor: 'primary.main',
-                    }}
-                  >
-                    
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography gutterBottom variant="h5" component="h3">
-                        {project.title}
-                      </Typography>
-                      <CardMedia
-                        component="img"
-                        image={project.image}
-                        alt={project.title}
-                        sx={{
-                          width: '100%',
-                          height: 200,
-                          objectFit: 'cover', // <- hace que se vea completa
-                          objectPosition: 'center',
-                          mt: 1,
-                        }}
-                      />
-                      {
-                         project.description.map( (desc, index) => (
-                          <ul>
-                            <li><Typography>{desc}</Typography></li>
+            <Container maxWidth="md">
+              <Typography variant="h3" component="h2" gutterBottom align="center" mb={4}>
+                {t("projectsMenu")}
+              </Typography>
+
+              <Grid container spacing={4}>
+                {t("projects", { returnObjects: true }).map((project, index) => (
+                  <Grid item key={index} xs={12} sm={6} md={4}>
+                    <Card
+                      sx={{
+                        width: "100%",
+                        height: "100%",
+                        minHeight: 400,
+                        display: "flex",
+                        flexDirection: "column",
+                        bgcolor: "primary.main"
+                      }}
+                    >
+                      <CardContent sx={{ flexGrow: 1 }}>
+                        <Typography gutterBottom variant="h5" component="h3">
+                          {project.title}
+                        </Typography>
+                        <CardMedia
+                          component="img"
+                          image={project.image}
+                          alt={project.title}
+                          sx={{
+                            width: "100%",
+                            height: 200,
+                            objectFit: "cover",
+                            objectPosition: "center",
+                            mt: 1
+                          }}
+                        />
+                        {project.description.map((desc, i) => (
+                          <ul key={i}>
+                            <li>
+                              <Typography>{desc}</Typography>
+                            </li>
                           </ul>
-                          
-                        )) 
-                      }
-                    </CardContent>
-                    <CardActions sx={{ mt: 'auto' }}>
-                      <Button
-                        size="small"
-                        color="#ffffff"
-                        href={project.repo}
-                        target="_blank"
-                        startIcon={<GitHubIcon />}
-                      >
-                        Repositorio
-                      </Button>
-                      <Button 
-                        size="small" color="#ffffff"
-                         href={project.demo}
-                         target="_blank"
-                      >
-                        Demo
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-          </Container>
-            
-           </Grow>
+                        ))}
+                      </CardContent>
+                      <CardActions sx={{ mt: "auto" }}>
+                        <Button
+                          size="small"
+                          color="#ffffff"
+                          href={project.repo}
+                          target="_blank"
+                          startIcon={<GitHubIcon />}
+                        >
+                          {t("repository")}
+                        </Button>
+                        <Button size="small" color="#ffffff" href={project.demo} target="_blank">
+                          {t("demo")}
+                        </Button>
+                      </CardActions>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            </Container>
+          </Grow>
         </Box>
       </Box>
 
@@ -433,9 +401,9 @@ export const PortfolioPage = () => {
       {/* Footer */}
       <Box component="footer" sx={{ py: 3, px: 2, mt: "auto", backgroundColor: "primary.main", color: "white" }}>
         <Container maxWidth="sm">
-          <Typography variant="body1" align="center">
-            © {new Date().getFullYear()} Federico Beltramino
-          </Typography>
+         <Typography variant="body1" align="center">
+          © {new Date().getFullYear()} {t("footer")}
+        </Typography>
         </Container>
       </Box>
     </Box>
