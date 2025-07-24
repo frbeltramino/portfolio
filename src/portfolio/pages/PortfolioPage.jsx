@@ -37,7 +37,7 @@ import {
   Menu as MenuIcon,
   Work as WorkIcon,
   Code as CodeIcon,
-  Email
+  Email, Phone
 } from "@mui/icons-material"
 import InfoOutlineIcon from '@mui/icons-material/InfoOutline';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
@@ -202,6 +202,23 @@ export const PortfolioPage = () => {
                 onClick={() => {
                   navigator.clipboard.writeText("frbeltra2@gmail.com");
                   handleSnackbarClose(true);
+                }}
+              >
+                <ContentCopyIcon fontSize="small" />
+              </IconButton>
+            </Box>
+            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", mb: 2 }}>
+              <Phone color="action" sx={{ mr: 1, color: "text.secondary" }} />
+              <Typography variant="body1" color="text.secondary">
+                +34 653 216 841
+              </Typography>
+              <IconButton
+                aria-label="Copiar teléfono"
+                size="small"
+                sx={{ color: "text.secondary" }}
+                onClick={() => {
+                  navigator.clipboard.writeText("+34653216841");
+                  handleSnackbarClose(true); // Asegúrate de que esta función muestre una notificación tipo "Número copiado"
                 }}
               >
                 <ContentCopyIcon fontSize="small" />
