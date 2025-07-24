@@ -63,14 +63,20 @@ export const PortfolioPage = () => {
   const [professionalRef, isProfessionalInView] = useInView();
   const [technologiesRef, isTechnologiesInView] = useInView();
   const [projectsRef, isProjectsInView] = useInView();
+  const [messageSnackbar, setMessageSnackbar] = useState("");
   const { t } = useTranslation()
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
   }
 
-  const handleSnackbarClose = (bool) => {
+  const handleSnackbarClose = (bool, snackBarText) => {
     setOpenSnackbar(bool);
+    if (snackBarText == "email") {
+      setMessageSnackbar(t("emailCopied"));
+    } else {
+      setMessageSnackbar(t("phoneCopied"));
+    }
   }
   
   const navItems = [
@@ -201,7 +207,7 @@ export const PortfolioPage = () => {
                 sx={{ color: "text.secondary" }}
                 onClick={() => {
                   navigator.clipboard.writeText("frbeltra2@gmail.com");
-                  handleSnackbarClose(true);
+                  handleSnackbarClose(true, "email");
                 }}
               >
                 <ContentCopyIcon fontSize="small" />
@@ -218,7 +224,7 @@ export const PortfolioPage = () => {
                 sx={{ color: "text.secondary" }}
                 onClick={() => {
                   navigator.clipboard.writeText("+34653216841");
-                  handleSnackbarClose(true); // Asegúrate de que esta función muestre una notificación tipo "Número copiado"
+                  handleSnackbarClose(true, "phone"); // Asegúrate de que esta función muestre una notificación tipo "Número copiado"
                 }}
               >
                 <ContentCopyIcon fontSize="small" />
@@ -401,7 +407,7 @@ export const PortfolioPage = () => {
         autoHideDuration={4000}
         onClose={() => handleSnackbarClose(false)}
       >
-        <Alert severity="success">Email copiado al portapapeles</Alert>
+        <Alert severity="success">{messageSnackbar}</Alert>
       </Snackbar>
 
       {/* Footer */}
