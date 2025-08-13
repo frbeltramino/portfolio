@@ -55,6 +55,8 @@
     { "name": "JavaScript", "image": "/icons/javascript.svg" },
     { "name": "HTML", "image": "/icons/html5.svg" },
     { "name": "CSS", "image": "/icons/css3.svg" },
+     { "name": "Bootstrap", "image": "/icons/bootstrap.svg" },
+    { "name": "Material UI", "image": "/icons/mui.svg" },
     { "name": "Postman (REST APIs)", "image": "/icons/postman.svg" },
     { "name": "Visualizer Framework", "image": "/icons/visualizer.png" },
     { "name": "MySQL", "image": "/icons/mysql.svg" },
