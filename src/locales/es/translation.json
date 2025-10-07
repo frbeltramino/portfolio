@@ -32,9 +32,10 @@
       "title": "TuTurno-App",
       "description": [
         "Una aplicación web desarrollada con React y Bootstrap que permite a los usuarios solicitar turnos en una clínica veterinaria.",
-        "Sistema de login con envío de OTP por email para autenticación de usuarios.",
+        "Sistema de login con envío de OTP por email y autenticación basada en tokens JWT.",
+        "Consumo de servicios REST mediante Axios para la comunicación entre frontend y backend.",
         "Gestión de base de datos MongoDB con NodeJS, Express y Mongoose para almacenar información de turnos, usuarios, servicios y profesionales.",
-        "Envío de confirmación de turno por correo electrónico."
+        "Envío automático de confirmaciones de turno por correo electrónico."
       ],
       "image": "/tuTurnoApp es.jpg",
       "repo": "https://github.com/frbeltramino/tu-turno-app",
@@ -43,7 +44,11 @@
     {
       "title": "TuTurno-Admin",
       "description": [
-        "Aplicación web desarrollada con React y MaterialUI que permite a los administradores gestionar turnos, servicios, profesionales y feriados."
+        "Aplicación web desarrollada con React y Material-UI que permite a los administradores gestionar turnos, servicios, profesionales y feriados.",
+        "Consumo de servicios REST mediante Axios para la comunicación entre el panel administrativo y el backend.",
+        "Autenticación y control de acceso implementados con tokens JWT para garantizar la seguridad de los datos.",
+        "Interfaz moderna y responsive creada con Material-UI, priorizando usabilidad y consistencia visual.",
+        "Gestión centralizada de información utilizando NodeJS, Express y MongoDB en el servidor."
       ],
       "image": "/tuTurnoAdmin es.jpg",
       "repo": "https://github.com/frbeltramino/tu-turno-admin",

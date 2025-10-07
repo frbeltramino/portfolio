@@ -31,10 +31,11 @@
     {
       "title": "TuTurno-App",
       "description": [
-        "A web application built with React and Bootstrap that allows users to book appointments at a veterinary clinic.",
-        "OTP email login system for user authentication.",
-        "MongoDB database management with NodeJS, Express, and Mongoose to store data about appointments, users, services, and professionals.",
-        "Appointment confirmation sent by email."
+        "A web application developed with React and Bootstrap that allows users to book appointments at a veterinary clinic.",
+        "Login system with OTP sent via email and JWT-based authentication.",
+        "Consumption of REST services using Axios for communication between frontend and backend.",
+        "Database management with MongoDB using NodeJS, Express, and Mongoose to store information about appointments, users, services, and professionals.",
+        "Automatic appointment confirmation emails."
       ],
       "image": "/tuTurnoApp en.jpg",
       "repo": "https://github.com/frbeltramino/tu-turno-app",
@@ -43,7 +44,11 @@
     {
       "title": "TuTurno-Admin",
       "description": [
-        "A web application developed with React and MaterialUI that enables administrators to manage appointments, services, professionals, and holidays."
+        "Web application developed with React and Material-UI that allows administrators to manage appointments, services, professionals, and holidays.",
+        "Consumption of REST services using Axios for communication between the admin panel and the backend.",
+        "Authentication and access control implemented with JWT tokens to ensure data security.",
+        "Modern and responsive interface created with Material-UI, prioritizing usability and visual consistency.",
+        "Centralized information management using NodeJS, Express, and MongoDB on the server."
       ],
       "image": "/tuTurnoAdmin en.jpg",
       "repo": "https://github.com/frbeltramino/tu-turno-admin",
