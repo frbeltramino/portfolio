@@ -8,7 +8,7 @@ export const DownloadPDFFile = () => {
   const currentLang = i18n.language || "en"
 
   // Armamos el nombre dinámico del archivo
-  const fileName = `Federico Beltramino-CV-${currentLang}.pdf`
+  const fileName = `Federico Beltramino CV ${currentLang}.pdf`
 
   return (
     <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 4 }}>

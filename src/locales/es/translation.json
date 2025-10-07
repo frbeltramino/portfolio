@@ -16,7 +16,7 @@
     {
       "title": "Desarrollador Frontend",
       "company": "GlobalLogic",
-      "period": "Junio 2018 - Presente",
+      "period": "Junio 2018 - Agosto 2025",
       "description": [
         "Desarrollo, testing y documentación de funcionalidades bancarias para aplicaciones web y móviles (Android / iOS).",
         "Resolución de bugs y soporte a incidencias productivas (hotfixes).",
@@ -36,14 +36,16 @@
         "Gestión de base de datos MongoDB con NodeJS, Express y Mongoose para almacenar información de turnos, usuarios, servicios y profesionales.",
         "Envío de confirmación de turno por correo electrónico."
       ],
-      "image": "/tuTurnoApp.jpg",
+      "image": "/tuTurnoApp es.jpg",
       "repo": "https://github.com/frbeltramino/tu-turno-app",
       "demo": "https://tuturno-app.netlify.app/"
     },
     {
       "title": "TuTurno-Admin",
-      "description": ["Aplicación web desarrollada con React y MaterialUI que permite a los administradores gestionar turnos, servicios, profesionales y feriados."],
-      "image": "/tuTurnoAdmin.jpg",
+      "description": [
+        "Aplicación web desarrollada con React y MaterialUI que permite a los administradores gestionar turnos, servicios, profesionales y feriados."
+      ],
+      "image": "/tuTurnoAdmin es.jpg",
       "repo": "https://github.com/frbeltramino/tu-turno-admin",
       "demo": "https://tuturno-admin.netlify.app/auth/login"
     }
@@ -51,24 +53,64 @@
   "position": "Desarrollador Frontend",
   "technologiesTitle": "Tecnologías y herramientas",
   "technologiesList": [
-    { "name": "JavaScript", "image": "/icons/javascript.svg" },
-    { "name": "HTML", "image": "/icons/html5.svg" },
-    { "name": "CSS", "image": "/icons/css3.svg" },
-    { "name": "Bootstrap", "image": "/icons/bootstrap.svg" },
-    { "name": "Material UI", "image": "/icons/mui.svg" },
-    { "name": "Postman (APIs REST)", "image": "/icons/postman.svg" },
-    { "name": "Visualizer Framework", "image": "/icons/visualizer.png" },
-    { "name": "MySQL", "image": "/icons/mysql.svg" },
-    { "name": "Git (control de versiones)", "image": "/icons/git.svg" },
-    { "name": "Jira (gestión ágil)", "image": "/icons/jira.svg" },
-    { "name": "React Js", "image": "/icons/react.svg" },
-    { "name": "MongoDB", "image": "/icons/mongodb.svg" },
-    { "name": "Express", "image": "/icons/express.svg" },
-    { "name": "NodeJS", "image": "/icons/nodejs.svg" }
-    
+    {
+      "name": "JavaScript",
+      "image": "/icons/javascript.svg"
+    },
+    {
+      "name": "HTML",
+      "image": "/icons/html5.svg"
+    },
+    {
+      "name": "CSS",
+      "image": "/icons/css3.svg"
+    },
+    {
+      "name": "Bootstrap",
+      "image": "/icons/bootstrap.svg"
+    },
+    {
+      "name": "Material UI",
+      "image": "/icons/mui.svg"
+    },
+    {
+      "name": "Postman (APIs REST)",
+      "image": "/icons/postman.svg"
+    },
+    {
+      "name": "Visualizer Framework",
+      "image": "/icons/visualizer.png"
+    },
+    {
+      "name": "MySQL",
+      "image": "/icons/mysql.svg"
+    },
+    {
+      "name": "Git (control de versiones)",
+      "image": "/icons/git.svg"
+    },
+    {
+      "name": "Jira (gestión ágil)",
+      "image": "/icons/jira.svg"
+    },
+    {
+      "name": "React Js",
+      "image": "/icons/react.svg"
+    },
+    {
+      "name": "MongoDB",
+      "image": "/icons/mongodb.svg"
+    },
+    {
+      "name": "Express",
+      "image": "/icons/express.svg"
+    },
+    {
+      "name": "NodeJS",
+      "image": "/icons/nodejs.svg"
+    }
   ],
   "footer": "Federico Beltramino. Todos los derechos reservados.",
   "repository": "Repositorio",
   "demo": "Demo"
-
 }

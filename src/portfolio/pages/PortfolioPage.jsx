@@ -53,6 +53,7 @@ import { useScrollTriggerOnce } from '../../hooks/useScrollTriggerOnce';
 import { Trans, useTranslation } from "react-i18next"
 import { TranslateDropdown } from "../../components/TranslateDropdown"
 import { DownloadPDFFile } from "../../components/DownloadPDFFile"
+import ProjectCard from "../../components/ProjectCard"
 
 export const PortfolioPage = () => {
   const theme = useTheme()
@@ -78,7 +79,7 @@ export const PortfolioPage = () => {
       setMessageSnackbar(t("phoneCopied"));
     }
   }
-  
+
   const navItems = [
     { name: t("about"), id: "about", icon: <InfoOutlineIcon /> },
     { name: t("experience"), id: "experience", icon: <WorkOutlineIcon /> },
@@ -115,7 +116,7 @@ export const PortfolioPage = () => {
 
 
   return (
-    
+
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       {/* Header/Navbar */}
       <AppBar position="sticky" color="primary">
@@ -141,14 +142,14 @@ export const PortfolioPage = () => {
       </AppBar>
 
       {/* Mobile Drawer */}
-      <Box 
+      <Box
         component="nav">
         <Drawer
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, 
+            keepMounted: true,
           }}
           sx={{
             display: { xs: "block", md: "none" },
@@ -156,9 +157,10 @@ export const PortfolioPage = () => {
               boxSizing: "border-box",
               width: 240,
               bgcolor: "altSecondary.main",
-              color: "white", 
-          }}
-    }
+              color: "white",
+            }
+          }
+          }
         >
           {drawer}
         </Drawer>
@@ -176,28 +178,28 @@ export const PortfolioPage = () => {
           }}
         >
           <Container maxWidth="md">
-            <Grid container 
+            <Grid container
               spacing={4}
               alignItems="center"
               justifyContent="center"
-              >
+            >
               <Avatar sx={{ width: 128, height: 128 }} src="/perfil.png" />
               <Typography component="h1" variant="h2" align="center" color="text.primary" gutterBottom>
                 Federico Beltramino
               </Typography>
             </Grid>
-            
+
             <Typography variant="h5" align="center" color="text.secondary" paragraph sx={{ mt: 4 }}>
               {t("position")}
             </Typography>
             <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", mb: 2 }}>
-              <LocationIcon color="action" sx={{ mr: 1, color:"text.secondary" }} />
+              <LocationIcon color="action" sx={{ mr: 1, color: "text.secondary" }} />
               <Typography variant="body1" color="text.secondary">
                 {t("location")}
               </Typography>
             </Box>
             <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", mb: 2 }}>
-              <Email color="action" sx={{ mr: 1, color:"text.secondary" }} />
+              <Email color="action" sx={{ mr: 1, color: "text.secondary" }} />
               <Typography variant="body1" color="text.secondary">
                 frbeltra2@gmail.com
               </Typography>
@@ -232,21 +234,21 @@ export const PortfolioPage = () => {
             </Box>
             <DownloadPDFFile />
             <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 4 }}>
-              <IconButton aria-label="github" href="https://github.com/frbeltramino?tab=repositories" target="_blank" sx={{  color:"text.secondary" }}>
+              <IconButton aria-label="github" href="https://github.com/frbeltramino?tab=repositories" target="_blank" sx={{ color: "text.secondary" }}>
                 <GitHubIcon fontSize="large" />
               </IconButton>
               <IconButton
                 aria-label="linkedin"
                 href="https://www.linkedin.com/in/federico-beltramino-5b174215b/"
                 target="_blank"
-                sx={{  color:"text.secondary" }}
+                sx={{ color: "text.secondary" }}
               >
                 <LinkedInIcon fontSize="large" />
               </IconButton>
               <IconButton
                 aria-label="email"
-                sx={{  color:"text.secondary" }}
-                 onClick={() => {
+                sx={{ color: "text.secondary" }}
+                onClick={() => {
                   navigator.clipboard.writeText("frbeltra2@gmail.com")
                   handleSnackbarClose(true)
                 }}
@@ -257,18 +259,18 @@ export const PortfolioPage = () => {
             <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 4 }}>
               <TranslateDropdown />
             </Box>
-            
+
           </Container>
         </Box>
 
-          {/* Professional Perfil */}
-          <PaperComponent
-            paperId="professional"
-            paperTitle={t("professionalProfile")}
-            paperDescription={t("professionalDescription", { returnObjects: true })}
-            paperRef={professionalRef}
-            isPaperInView={isProfessionalInView}
-          />
+        {/* Professional Perfil */}
+        <PaperComponent
+          paperId="professional"
+          paperTitle={t("professionalProfile")}
+          paperDescription={t("professionalDescription", { returnObjects: true })}
+          paperRef={professionalRef}
+          isPaperInView={isProfessionalInView}
+        />
 
         <Box
           id="experience"
@@ -317,7 +319,7 @@ export const PortfolioPage = () => {
             </Container>
           </Zoom>
         </Box>
-        
+
 
 
         {/* Technologies Section */}
@@ -328,7 +330,7 @@ export const PortfolioPage = () => {
           paperRef={technologiesRef}
           isPaperInView={isTechnologiesInView}
         />
-    
+
         {/* Projects Section */}
         <Box id="projects" sx={{ py: 8, bgcolor: "altSecondary.main" }} ref={projectsRef}>
           <Grow
@@ -344,61 +346,15 @@ export const PortfolioPage = () => {
               <Grid container spacing={4}>
                 {t("projects", { returnObjects: true }).map((project, index) => (
                   <Grid item key={index} xs={12} sm={6} md={4}>
-                    <Card
-                      sx={{
-                        width: "100%",
-                        height: "100%",
-                        minHeight: 400,
-                        display: "flex",
-                        flexDirection: "column",
-                        bgcolor: "primary.main"
-                      }}
-                    >
-                      <CardContent sx={{ flexGrow: 1 }}>
-                        <Typography gutterBottom variant="h5" component="h3">
-                          {project.title}
-                        </Typography>
-                        <CardMedia
-                          component="img"
-                          image={project.image}
-                          alt={project.title}
-                          sx={{
-                            width: "100%",
-                            height: 200,
-                            objectFit: "cover",
-                            objectPosition: "center",
-                            mt: 1
-                          }}
-                        />
-                        {project.description.map((desc, i) => (
-                          <ul key={i}>
-                            <li>
-                              <Typography>{desc}</Typography>
-                            </li>
-                          </ul>
-                        ))}
-                      </CardContent>
-                      <CardActions sx={{ mt: "auto" }}>
-                        <Button
-                          size="small"
-                          color="#ffffff"
-                          href={project.repo}
-                          target="_blank"
-                          startIcon={<GitHubIcon />}
-                        >
-                          {t("repository")}
-                        </Button>
-                        <Button size="small" color="#ffffff" href={project.demo} target="_blank">
-                          {t("demo")}
-                        </Button>
-                      </CardActions>
-                    </Card>
+                    <ProjectCard project={project} />
+
                   </Grid>
                 ))}
               </Grid>
             </Container>
           </Grow>
         </Box>
+
       </Box>
 
       {/* Snackbar */}
@@ -413,9 +369,9 @@ export const PortfolioPage = () => {
       {/* Footer */}
       <Box component="footer" sx={{ py: 3, px: 2, mt: "auto", backgroundColor: "primary.main", color: "white" }}>
         <Container maxWidth="sm">
-         <Typography variant="body1" align="center">
-          © {new Date().getFullYear()} {t("footer")}
-        </Typography>
+          <Typography variant="body1" align="center">
+            © {new Date().getFullYear()} {t("footer")}
+          </Typography>
         </Container>
       </Box>
     </Box>
