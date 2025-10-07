@@ -226,7 +226,7 @@ export const PortfolioPage = () => {
                 sx={{ color: "text.secondary" }}
                 onClick={() => {
                   navigator.clipboard.writeText("+34653216841");
-                  handleSnackbarClose(true, "phone"); // Asegúrate de que esta función muestre una notificación tipo "Número copiado"
+                  handleSnackbarClose(true, "phone");
                 }}
               >
                 <ContentCopyIcon fontSize="small" />
@@ -250,7 +250,7 @@ export const PortfolioPage = () => {
                 sx={{ color: "text.secondary" }}
                 onClick={() => {
                   navigator.clipboard.writeText("frbeltra2@gmail.com")
-                  handleSnackbarClose(true)
+                  handleSnackbarClose(true, "email");
                 }}
               >
                 <Email fontSize="large" />
