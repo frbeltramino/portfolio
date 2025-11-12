@@ -53,6 +53,19 @@
       "image": "/tuTurnoAdmin es.jpg",
       "repo": "https://github.com/frbeltramino/tu-turno-admin",
       "demo": "https://tuturno-admin.netlify.app/auth/login"
+    },
+    {
+      "title": "Teslo | Shop",
+      "description": [
+        "Tienda de ropa online construida con React + TypeScript, Tailwind CSS y shadcn/ui.",
+        "Sistema de login con autenticación basada en tokens JWT. Con usuarios con rol admin y user",
+        "Consumo de servicios REST mediante Axios para la comunicación entre frontend y backend.",
+        "Gestión de base de datos PostgresSQL creada en nest para la administración de datos de usuarios y productos."
+      ],
+      "image": "/TesloShopApp.jpg",
+      "video": "/TesloShopVideo.webm",
+      "repo": "https://github.com/frbeltramino/teslo-shop-react-app",
+      "demo": "https://teslo-shop-react-frb.netlify.app/"
     }
   ],
   "position": "Desarrollador Frontend",
