@@ -28,6 +28,7 @@ function ProjectCard({ project }) {
           borderRadius: 2,
           boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
           height: "100%",
+          width: "400px",
           transition: "transform 0.3s ease, box-shadow 0.3s ease",
           "&:hover": {
             transform: "translateY(-5px)",
@@ -100,33 +101,75 @@ function ProjectCard({ project }) {
       </Card>
 
       {/* Modal con imagen completa */}
-      <Dialog
-        open={open}
-        onClose={() => setOpen(false)}
-        maxWidth="lg"
-        PaperProps={{
-          sx: {
-            bgcolor: "transparent",
-            boxShadow: "none",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-          }
-        }}
-      >
-        <Box
-          component="img"
-          src={project.image}
-          alt={project.title}
-          sx={{
-            width: "100%",
-            maxWidth: "900px",
-            maxHeight: "90vh",
-            objectFit: "contain",
-            borderRadius: 2
-          }}
-        />
-      </Dialog>
+      {
+        project.image && !project.video ?
+          (
+            <Dialog
+              open={open}
+              onClose={() => setOpen(false)}
+              maxWidth="lg"
+              PaperProps={{
+                sx: {
+                  bgcolor: "transparent",
+                  boxShadow: "none",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center"
+                }
+              }}
+            >
+              <Box
+                component="img"
+                src={project.image}
+                alt={project.title}
+                sx={{
+                  width: "100%",
+                  maxWidth: "900px",
+                  maxHeight: "90vh",
+                  objectFit: "contain",
+                  borderRadius: 2
+                }}
+              />
+            </Dialog>
+          )
+          : (
+            <>
+              <Dialog
+                open={open}
+                onClose={() => setOpen(false)}
+                maxWidth="lg"
+                PaperProps={{
+                  sx: {
+                    bgcolor: "transparent",
+                    boxShadow: "none",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center"
+                  }
+                }}
+              >
+                <Box
+                  component="video"
+                  src={project.video} // URL de tu video
+                  controls // Muestra controles de reproducción
+                  autoPlay={false} // true si quieres que se reproduzca automáticamente
+                  loop={false} // true si quieres que se repita
+                  sx={{
+                    width: "100%",
+                    maxWidth: "900px",
+                    maxHeight: "90vh",
+                    borderRadius: 2,
+                    backgroundColor: "#000" // opcional, por si el video tiene transparencias
+                  }}
+                />
+              </Dialog>
+
+            </>
+          )
+      }
+
+
+
     </>
   );
 }

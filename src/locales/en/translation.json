@@ -53,6 +53,20 @@
       "image": "/tuTurnoAdmin en.jpg",
       "repo": "https://github.com/frbeltramino/tu-turno-admin",
       "demo": "https://tuturno-admin.netlify.app/auth/login"
+    },
+    {
+      "title": "Teslo | Shop",
+      "description": [
+        "A modern e-commerce web application for a clothing store, built with React + TypeScript, Tailwind CSS, and shadcn/ui.",
+        "Users can browse products, add items to the cart, and complete purchases seamlessly.",
+        "Login system with JWT-based authentication, supporting both admin and regular user roles.",
+        "Admin users can manage products, update stock, and handle orders via a dashboard.",
+        "The app communicates with a backend API using Axios and stores data in a PostgreSQL database."
+      ],
+      "image": "/TesloShopApp.jpg",
+      "video": "/TesloShopVideo.webm",
+      "repo": "https://github.com/frbeltramino/teslo-shop-react-app",
+      "demo": "https://teslo-shop-react-frb.netlify.app/"
     }
   ],
   "position": "Frontend Developer",
