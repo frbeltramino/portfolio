@@ -63,7 +63,9 @@ export const PortfolioPage = () => {
   const [experienceRef, isExperienceInView] = useInView();
   const [professionalRef, isProfessionalInView] = useInView();
   const [technologiesRef, isTechnologiesInView] = useInView();
-  const [projectsRef, isProjectsInView] = useInView();
+  const [isProjectsInView, setIsProjectsInView] = useState(false);
+  const projectsRef = useRef(null);
+
   const [messageSnackbar, setMessageSnackbar] = useState("");
   const { t } = useTranslation()
 
@@ -113,6 +115,33 @@ export const PortfolioPage = () => {
       </MuiList>
     </Box>
   )
+
+
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsProjectsInView(true);
+          observer.unobserve(entry.target); // ⬅️ evita que desaparezca
+        }
+      },
+      {
+        threshold: 0.15,            // aparece antes
+        rootMargin: "0px 0px -20% 0px" // aún más suave
+      }
+    );
+
+    if (projectsRef.current) {
+      observer.observe(projectsRef.current);
+    }
+
+    return () => {
+      if (projectsRef.current) {
+        observer.unobserve(projectsRef.current);
+      }
+    };
+  }, []);
 
 
   return (
@@ -332,14 +361,24 @@ export const PortfolioPage = () => {
         />
 
         {/* Projects Section */}
-        <Box id="projects" sx={{ py: 8, bgcolor: "altSecondary.main" }} ref={projectsRef}>
+        <Box
+          id="projects"
+          sx={{ py: 8, bgcolor: "altSecondary.main" }}
+          ref={projectsRef}
+        >
           <Grow
             in={isProjectsInView}
             timeout={1000}
             style={{ transformOrigin: "0 0 0" }}
           >
             <Container maxWidth="md">
-              <Typography variant="h3" component="h2" gutterBottom align="center" mb={4}>
+              <Typography
+                variant="h3"
+                component="h2"
+                gutterBottom
+                align="center"
+                mb={4}
+              >
                 {t("projectsMenu")}
               </Typography>
 
@@ -347,7 +386,6 @@ export const PortfolioPage = () => {
                 {t("projects", { returnObjects: true }).map((project, index) => (
                   <Grid item key={index} xs={12} sm={6} md={4}>
                     <ProjectCard project={project} />
-
                   </Grid>
                 ))}
               </Grid>
