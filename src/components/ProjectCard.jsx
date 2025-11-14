@@ -28,7 +28,9 @@ function ProjectCard({ project }) {
           borderRadius: 2,
           boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
           height: "100%",
-          width: "400px",
+          width: "100%",        // ⬅️ responsive
+          maxWidth: 400,        // ⬅️ no excede ese ancho en desktop
+          margin: "0 auto",
           transition: "transform 0.3s ease, box-shadow 0.3s ease",
           "&:hover": {
             transform: "translateY(-5px)",
