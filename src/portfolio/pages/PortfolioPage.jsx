@@ -335,8 +335,8 @@ export const PortfolioPage = () => {
         <Box id="projects" sx={{ py: 8, bgcolor: "altSecondary.main" }} ref={projectsRef}>
           <Grow
             in={isProjectsInView}
+            timeout={1000}
             style={{ transformOrigin: "0 0 0" }}
-            {...(isProjectsInView ? { timeout: 1000 } : {})}
           >
             <Container maxWidth="md">
               <Typography variant="h3" component="h2" gutterBottom align="center" mb={4}>
