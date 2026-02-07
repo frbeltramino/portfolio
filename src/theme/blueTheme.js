@@ -1,7 +1,7 @@
 import { red } from '@mui/material/colors'
 import { createTheme } from '@mui/material/styles'
 
-export const blueTheme = createTheme({
+const blueTheme = createTheme({
   palette: {
     primary: { main: "#3b5bc1" },
     secondary: { main: "#6b86f1" },
@@ -23,5 +23,5 @@ export const blueTheme = createTheme({
       fontSize: '1.125rem',
     }
   },
-   
+
 })

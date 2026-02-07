@@ -48,12 +48,12 @@ import DownloadIcon from '@mui/icons-material/Download';
 import { useEffect, useRef, useState } from "react"
 import Zoom from '@mui/material/Zoom';
 import { useInView } from "../../hooks/useInView"
-import { PaperComponent } from "../../components/PaperComponent"
+import { PaperComponent } from "../../componentsold/PaperComponent"
 import { useScrollTriggerOnce } from '../../hooks/useScrollTriggerOnce';
 import { Trans, useTranslation } from "react-i18next"
-import { TranslateDropdown } from "../../components/TranslateDropdown"
-import { DownloadPDFFile } from "../../components/DownloadPDFFile"
-import ProjectCard from "../../components/ProjectCard"
+import { TranslateDropdown } from "../../componentsold/TranslateDropdown"
+import { DownloadPDFFile } from "../../componentsold/DownloadPDFFile"
+import ProjectCard from "../../componentsold/ProjectCard"
 
 export const PortfolioPage = () => {
   const theme = useTheme()
