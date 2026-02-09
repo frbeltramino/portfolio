@@ -2,17 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
+import { LanguageButton } from './LanguageButton';
 
 export default function Navigation() {
+  const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Technologies', href: '#technologies' },
-    { label: 'Contact', href: '#contact' },
+    { label: t('about'), href: '#about' },
+    { label: t('experience'), href: '#experience' },
+    { label: t('projectsMenu'), href: '#projects' },
+    { label: t('technologiesMenu'), href: '#technologies' },
+    { label: t('contactMenu'), href: '#contact' },
   ];
 
   useEffect(() => {
@@ -38,8 +41,8 @@ export default function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-            ? 'bg-white/80 backdrop-blur-xl shadow-lg shadow-slate-200/50 border-b border-slate-200/50'
-            : 'bg-transparent'
+          ? 'bg-white/80 backdrop-blur-xl shadow-lg shadow-slate-200/50 border-b border-slate-200/50'
+          : 'bg-transparent'
           }`}
       >
         <div className="max-w-6xl mx-auto px-6">
@@ -64,13 +67,17 @@ export default function Navigation() {
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
                   className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${isScrolled
-                      ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                      : 'text-slate-300 hover:text-white hover:bg-white/10'
+                    ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                    : 'text-slate-300 hover:text-white hover:bg-white/10'
                     }`}
                 >
                   {item.label}
                 </button>
               ))}
+              <div className="flex items-center gap-1 ml-2">
+                <LanguageButton lang="es" label="ES" isScrolled={isScrolled} />
+                <LanguageButton lang="en" label="EN" isScrolled={isScrolled} />
+              </div>
             </div>
 
             {/* CTA Button */}
@@ -78,11 +85,11 @@ export default function Navigation() {
               <Button
                 onClick={() => scrollToSection('#contact')}
                 className={`rounded-full px-6 transition-all duration-300 ${isScrolled
-                    ? 'bg-slate-900 hover:bg-indigo-600 text-white'
-                    : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
+                  ? 'bg-slate-900 hover:bg-indigo-600 text-white'
+                  : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
                   }`}
               >
-                Get in Touch
+                {t('getInTouch')}
               </Button>
             </div>
 
@@ -90,8 +97,8 @@ export default function Navigation() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`md:hidden p-2 rounded-lg transition-colors ${isScrolled
-                  ? 'text-slate-900 hover:bg-slate-100'
-                  : 'text-white hover:bg-white/10'
+                ? 'text-slate-900 hover:bg-slate-100'
+                : 'text-white hover:bg-white/10'
                 }`}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -114,6 +121,7 @@ export default function Navigation() {
               className="absolute inset-0 bg-black/60 backdrop-blur-sm"
               onClick={() => setIsMobileMenuOpen(false)}
             />
+
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
@@ -122,6 +130,14 @@ export default function Navigation() {
               className="absolute right-0 top-0 bottom-0 w-80 bg-white shadow-2xl"
             >
               <div className="p-6 pt-24">
+                {/* Language Section */}
+                <div className="mb-6">
+
+                  <div className="flex gap-4">
+                    <LanguageButton lang="es" label="ES" variant="mobile-menu" />
+                    <LanguageButton lang="en" label="EN" variant="mobile-menu" />
+                  </div>
+                </div>
                 <div className="space-y-2">
                   {navItems.map((item, index) => (
                     <motion.button
@@ -146,7 +162,7 @@ export default function Navigation() {
                     onClick={() => scrollToSection('#contact')}
                     className="w-full bg-slate-900 hover:bg-indigo-600 text-white rounded-xl h-12"
                   >
-                    Get in Touch
+                    {t('getInTouch')}
                   </Button>
                 </motion.div>
               </div>

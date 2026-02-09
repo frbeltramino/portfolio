@@ -1,23 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export default function TechnologiesSection() {
-  const technologies = [
-    { name: "JavaScript", color: "from-yellow-400 to-yellow-500" },
-    { name: "React", color: "from-cyan-400 to-cyan-500" },
-    { name: "TypeScript", color: "from-blue-500 to-blue-600" },
-    { name: "HTML5", color: "from-orange-500 to-orange-600" },
-    { name: "CSS3", color: "from-blue-400 to-blue-500" },
-    { name: "Tailwind CSS", color: "from-teal-400 to-teal-500" },
-    { name: "Node.js", color: "from-green-500 to-green-600" },
-    { name: "Express", color: "from-slate-500 to-slate-600" },
-    { name: "MongoDB", color: "from-emerald-500 to-emerald-600" },
-    { name: "MySQL", color: "from-blue-600 to-blue-700" },
-    { name: "Git", color: "from-orange-600 to-red-500" },
-    { name: "REST APIs", color: "from-purple-500 to-purple-600" },
-    { name: "Bootstrap", color: "from-violet-500 to-violet-600" },
-    { name: "Material UI", color: "from-blue-500 to-blue-600" },
-  ];
+  const { t } = useTranslation();
+
+  const technologies = t('technologies', { returnObjects: true });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -57,10 +45,10 @@ export default function TechnologiesSection() {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Technologies & Tools
+            {t('technologies&tools')}
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            The technologies I work with daily to build modern, scalable web applications
+            {t('technologiesDescription')}
           </p>
         </motion.div>
 
@@ -96,7 +84,7 @@ export default function TechnologiesSection() {
           className="mt-16 pt-16 border-t border-white/10"
         >
           <h3 className="text-center text-sm font-medium text-slate-500 uppercase tracking-wider mb-8">
-            Also experienced with
+            {t('alsoExperiencedWith')}
           </h3>
           <div className="flex flex-wrap justify-center gap-8 text-slate-400">
             {['Jira', 'Postman', 'Scrum', 'Kanban', 'Agile', 'VS Code'].map((tool) => (

@@ -2,8 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 export default function HeroSection() {
+  const { t } = useTranslation();
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -33,8 +35,9 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8"
           >
             <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-            <span className="text-sm text-slate-300">Available for new projects</span>
+            <span className="text-sm text-slate-300"> {t('availableForProjects')}</span>
           </motion.div>
+
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight">
             Federico
@@ -43,13 +46,31 @@ export default function HeroSection() {
             </span>
           </h1>
 
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.35, duration: 0.5 }}
+            className="flex justify-center mb-6"
+          >
+            <div className="relative">
+              {/* Glow muy sutil */}
+              <div className="absolute inset-0 rounded-full bg-emerald-500/10 blur-xl scale-110" />
+
+              <img
+                src="/avatar-retro.png"
+                alt="Federico Beltramino"
+                className="relative w-24 h-24 md:w-28 md:h-28 rounded-full border border-white/10 object-cover"
+              />
+            </div>
+          </motion.div>
+
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
             className="text-xl md:text-2xl text-slate-400 mb-4 font-light"
           >
-            Frontend Developer
+            Software Developer
           </motion.p>
 
           <motion.p
@@ -58,8 +79,13 @@ export default function HeroSection() {
             transition={{ delay: 0.5 }}
             className="text-base md:text-lg text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            Building exceptional digital experiences with React, TypeScript, and modern web technologies.
-            6+ years crafting scalable solutions for banking and enterprise applications.
+            {t('professionalDescription', { returnObjects: true }).map(
+              (text, index) => (
+                <p key={index} className="text-slate-600 leading-relaxed">
+                  {text}
+                </p>
+              )
+            )}
           </motion.p>
 
           <motion.div
@@ -72,14 +98,14 @@ export default function HeroSection() {
               onClick={() => scrollToSection('projects')}
               className="bg-white text-slate-900 hover:bg-slate-100 px-8 py-6 text-base font-medium rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-white/10"
             >
-              View Projects
+              {t('viewProjects')}
             </Button>
             <Button
               onClick={() => scrollToSection('contact')}
               variant="outline"
-              className="border-slate-700 text-slate-300 hover:bg-white/5 px-8 py-6 text-base font-medium rounded-full transition-all duration-300"
+              className="border-slate-600 text-slate-900 hover:bg-white/10 hover:text-white px-8 py-6 text-base font-medium rounded-full transition-all duration-300"
             >
-              Contact Me
+              {t('contactMe')}
             </Button>
           </motion.div>
 

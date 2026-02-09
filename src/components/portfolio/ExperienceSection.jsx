@@ -1,20 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Building2, Calendar, CheckCircle2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function ExperienceSection() {
-  const experience = {
-    title: "Frontend Developer",
-    company: "GlobalLogic",
-    period: "June 2018 - August 2025",
-    description: [
-      "Development, testing, and documentation of banking features for web and mobile apps (Android / iOS).",
-      "Bug fixing and production incident support (hotfixes).",
-      "Extensive knowledge of project-specific technologies and banking business rules.",
-      "Informal mentoring to team members on technical and functional questions.",
-      "Active participation in Scrum teams: planning, refinement, daily standups, retrospectives."
-    ]
-  };
+  const { t } = useTranslation();
+  const experiences = t('experiences', { returnObjects: true });
+
 
   return (
     <section id="experience" className="py-32 bg-slate-50">
@@ -27,11 +19,11 @@ export default function ExperienceSection() {
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-indigo-500" />
-            <span className="text-sm font-medium text-indigo-600 uppercase tracking-wider">Experience</span>
+            <span className="text-sm font-medium text-indigo-600 uppercase tracking-wider">{t('experience')}</span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-16">
-            Work History
+            {t('workHistory')}
           </h2>
 
           <div className="relative">
@@ -51,9 +43,17 @@ export default function ExperienceSection() {
               {/* Left side - Date */}
               <div className="hidden md:flex justify-end pr-12">
                 <div className="text-right">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 font-medium">
-                    <Calendar className="w-4 h-4" />
-                    {experience.period}
+                  <div className="inline-flex flex-col items-end gap-1 px-5 py-3 rounded-2xl bg-indigo-50 text-indigo-800 font-semibold shadow-sm shadow-indigo-200 transform transition-all duration-300 hover:scale-105 hover:bg-indigo-100">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-5 h-5" />
+                      <span className="text-sm text-indigo-700 font-medium">
+                        {t('experiencePeriod')}
+                      </span>
+                    </div>
+                    <div className="text-xs text-indigo-600">
+                      {/* Separando Desde y Hasta en dos líneas o con guion */}
+                      {t('experiences.experienceStart')} - {t('experiences.experienceEnd')}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -66,14 +66,14 @@ export default function ExperienceSection() {
                       <Building2 className="w-7 h-7 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-slate-900">{experience.title}</h3>
-                      <p className="text-indigo-600 font-medium">{experience.company}</p>
-                      <p className="text-sm text-slate-500 md:hidden mt-1">{experience.period}</p>
+                      <h3 className="text-2xl font-bold text-slate-900">{experiences.title}</h3>
+                      <p className="text-indigo-600 font-medium">{experiences.company}</p>
+                      <p className="text-sm text-slate-500 md:hidden mt-1">{experiences.period}</p>
                     </div>
                   </div>
 
                   <ul className="space-y-4">
-                    {experience.description.map((item, index) => (
+                    {experiences.description.map((item, index) => (
                       <motion.li
                         key={index}
                         initial={{ opacity: 0, x: -20 }}

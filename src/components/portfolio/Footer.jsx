@@ -1,7 +1,9 @@
 import React from 'react';
 import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -10,13 +12,13 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2 text-slate-400">
             <span>© {currentYear} Federico Beltramino.</span>
-            <span className="hidden md:inline">All rights reserved.</span>
+            <span className="hidden md:inline">{t('footer.rights')}</span>
           </div>
 
           <div className="flex items-center gap-2 text-slate-500 text-sm">
-            <span>Built with</span>
+            <span>{t('footer.builtWith')}</span>
             <Heart className="w-4 h-4 text-red-500 fill-red-500" />
-            <span>and React</span>
+            <span>{t('footer.andReact')}</span>
           </div>
 
           <div className="flex items-center gap-4">

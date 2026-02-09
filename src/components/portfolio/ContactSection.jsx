@@ -6,8 +6,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Mail, Github, Linkedin, MapPin, Send, CheckCircle, Copy } from 'lucide-react';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
+import emailjs from '@emailjs/browser';
 
 export default function ContactSection() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -16,17 +19,28 @@ export default function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          title: t('contact.emailSubject'),
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
-    setIsSubmitting(false);
-    setSubmitted(true);
-    toast.success('Message sent successfully!');
-
-    setTimeout(() => {
-      setSubmitted(false);
+      setSubmitted(true);
+      toast.success(t('contact.successTitle'));
       setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+
+    } catch (error) {
+      toast.error(t('contact.error'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const copyEmail = () => {
@@ -35,9 +49,8 @@ export default function ContactSection() {
   };
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/frbeltramino', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:contact@example.com', label: 'Email' },
+    { icon: Github, href: 'https://github.com/frbeltramino?tab=repositories', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/federico-beltramino-5b174215b/', label: 'LinkedIn' }
   ];
 
   return (
@@ -54,15 +67,14 @@ export default function ContactSection() {
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-indigo-500" />
-            <span className="text-sm font-medium text-indigo-600 uppercase tracking-wider">Contact</span>
+            <span className="text-sm font-medium text-indigo-600 uppercase tracking-wider">{t('contactMenu')}</span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-            Let's Work Together
+            {t('contact.title')}
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mb-16">
-            Have a project in mind or want to discuss opportunities?
-            I'd love to hear from you. Let's create something amazing together.
+            {t('contact.description')}
           </p>
 
           <div className="grid lg:grid-cols-2 gap-16">
@@ -80,8 +92,8 @@ export default function ContactSection() {
                     <Mail className="w-6 h-6 text-indigo-600" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm text-slate-500 mb-1">Email</p>
-                    <p className="font-medium text-slate-900">contact@federicobeltramino.dev</p>
+                    <p className="text-sm text-slate-500 mb-1">{t('contact.email')}</p>
+                    <p className="font-medium text-slate-900">frbeltra2@gmail.com</p>
                   </div>
                   <Copy className="w-5 h-5 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </motion.div>
@@ -97,14 +109,14 @@ export default function ContactSection() {
                     <MapPin className="w-6 h-6 text-indigo-600" />
                   </div>
                   <div>
-                    <p className="text-sm text-slate-500 mb-1">Location</p>
-                    <p className="font-medium text-slate-900">Benidorm, Spain</p>
+                    <p className="text-sm text-slate-500 mb-1">{t('contact.location')}</p>
+                    <p className="font-medium text-slate-900">{t('location')}</p>
                   </div>
                 </motion.div>
               </div>
 
               <div className="pt-8 border-t border-slate-100">
-                <p className="text-sm text-slate-500 mb-4">Find me on</p>
+                <p className="text-sm text-slate-500 mb-4">{t('contact.findMeOn')}</p>
                 <div className="flex gap-4">
                   {socialLinks.map((social) => (
                     <motion.a
@@ -139,43 +151,43 @@ export default function ContactSection() {
                   <div className="w-20 h-20 rounded-full bg-emerald-100 flex items-center justify-center mb-6">
                     <CheckCircle className="w-10 h-10 text-emerald-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Message Sent!</h3>
-                  <p className="text-slate-600">I'll get back to you as soon as possible.</p>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">{t('contact.successTitle')}</h3>
+                  <p className="text-slate-600">{t('contact.successMessage')}</p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-slate-700">Name</Label>
+                    <Label htmlFor="name" className="text-slate-700">{t('contact.form.name')}</Label>
                     <Input
                       id="name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Your name"
+                      placeholder={t('contact.form.placeholder.name')}
                       required
                       className="h-12 rounded-xl border-slate-200 focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-slate-700">Email</Label>
+                    <Label htmlFor="email" className="text-slate-700">{t('contact.form.email')}</Label>
                     <Input
                       id="email"
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="your@email.com"
+                      placeholder={t('contact.form.placeholder.email')}
                       required
                       className="h-12 rounded-xl border-slate-200 focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message" className="text-slate-700">Message</Label>
+                    <Label htmlFor="message" className="text-slate-700">{t('contact.form.message')}</Label>
                     <Textarea
                       id="message"
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell me about your project..."
+                      placeholder={t('contact.form.placeholder.message')}
                       required
                       rows={5}
                       className="rounded-xl border-slate-200 focus:border-indigo-500 focus:ring-indigo-500 resize-none"
@@ -190,12 +202,12 @@ export default function ContactSection() {
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">
                         <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        Sending...
+                        {t('contact.form.sending')}
                       </span>
                     ) : (
                       <span className="flex items-center gap-2">
                         <Send className="w-5 h-5" />
-                        Send Message
+                        {t('contact.form.send')}
                       </span>
                     )}
                   </Button>

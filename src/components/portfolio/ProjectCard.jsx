@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Play, X } from 'lucide-react';
+import { ExternalLink, Github, Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 export default function ProjectCard({ project, index }) {
+  const { t } = useTranslation();
   const [showVideo, setShowVideo] = useState(false);
+  const [activeImage, setActiveImage] = useState(0);
+
+  const nextImage = () => {
+    setActiveImage((prev) => (prev + 1) % project.images.length);
+  };
+
+  const prevImage = () => {
+    setActiveImage((prev) => (prev - 1 + project.images.length) % project.images.length);
+  };
 
   return (
     <motion.div
@@ -15,13 +26,33 @@ export default function ProjectCard({ project, index }) {
       className="group"
     >
       <div className="bg-white rounded-3xl overflow-hidden shadow-lg shadow-slate-200/50 border border-slate-100 hover:shadow-2xl hover:shadow-indigo-100/50 transition-all duration-500 hover:-translate-y-2">
-        {/* Image/Video Container */}
+
+        {/* Image/Carousel Container */}
         <div className="relative aspect-video bg-slate-100 overflow-hidden">
           <img
-            src={`https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=450&fit=crop`}
-            alt={project.title}
+            key={activeImage}
+            src={project.images[activeImage]}
+            alt={`${project.title} screenshot ${activeImage + 1}`}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
+
+          {/* Carousel controls */}
+          {project.images.length > 1 && (
+            <>
+              <button
+                onClick={prevImage}
+                className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 text-white hover:bg-black/50 transition-all z-20"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={nextImage}
+                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 text-white hover:bg-black/50 transition-all z-20"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </>
+          )}
 
           {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
@@ -92,7 +123,7 @@ export default function ProjectCard({ project, index }) {
               className="text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors flex items-center gap-2"
             >
               <Github className="w-4 h-4" />
-              Repository
+              {t('repository')}
             </a>
             <a
               href={project.demo}
@@ -100,7 +131,7 @@ export default function ProjectCard({ project, index }) {
               rel="noopener noreferrer"
               className="text-sm font-medium text-indigo-600 hover:text-indigo-700 transition-colors flex items-center gap-2"
             >
-              Live Demo
+              {t('demo')}
               <ExternalLink className="w-4 h-4" />
             </a>
           </div>
