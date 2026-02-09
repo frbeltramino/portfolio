@@ -39,7 +39,6 @@ export default function ExperienceSection() {
             >
               {/* Timeline dot */}
               <div className="absolute left-0 md:left-1/2 top-0 w-4 h-4 rounded-full bg-indigo-500 border-4 border-white shadow-lg transform -translate-x-1/2 md:translate-x-0 md:-translate-x-1/2" />
-
               {/* Left side - Date */}
               <div className="hidden md:flex justify-end pr-12">
                 <div className="text-right">
