@@ -175,6 +175,7 @@
     "findMeOn": "Encuéntrame en",
     "successTitle": "¡Mensaje enviado!",
     "successMessage": "Me pondré en contacto contigo lo antes posible.",
+    "error": "Error al enviar el mensaje",
     "emailSubject": "Nuevo mensaje de tu portafolio 🚀",
     "form": {
       "name": "Nombre",
