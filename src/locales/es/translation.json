@@ -3,56 +3,132 @@
   "experience": "Experiencia",
   "projectsMenu": "Proyectos",
   "technologiesMenu": "Tecnologías",
+  "contactMenu": "Contacto",
+  "idiomMenu": "Idioma",
   "location": "Benidorm, España",
   "emailCopied": "Email copiado al portapapeles",
   "phoneCopied": "Número de teléfono copiado al portapapeles",
   "downloadCV": "Descargar CV",
   "professionalProfile": "Perfil Profesional",
-  "professionalDescription": [
-    "Experiencia en desarrollo de software con más de 6 años de experiencia en proyectos de aplicaciones bancarias web y mobile.",
-    "Experto en tecnologías Frontend como JavaScript, HTML y CSS, consumo de servicios REST y metodologías ágiles (Scrum/Kanban). Apasionado por el aprendizaje continuo, actualmente perfeccionando habilidades en React, Express y MongoDB, y mejorando el inglés de manera activa."
-  ],
-  "experiences": [
+  "getInTouch": "Contacto",
+  "availableForProjects": "Disponible para nuevos proyectos",
+  "contactMe": "Contáctame",
+  "viewProjects": "Ver Proyectos",
+  "portfolio": "Portafolio",
+  "featuredProjects": "Proyectos Destacados",
+  "projectsDescription": "Una selección de mis trabajos recientes mostrando capacidades de desarrollo full-stack con tecnologías modernas y buenas prácticas.",
+  "highlights": [
     {
-      "title": "Desarrollador Frontend",
-      "company": "GlobalLogic",
-      "period": "Junio 2018 - Agosto 2025",
-      "description": [
-        "Desarrollo, testing y documentación de funcionalidades bancarias para aplicaciones web y móviles (Android / iOS).",
-        "Resolución de bugs y soporte a incidencias productivas (hotfixes).",
-        "Amplio conocimiento en tecnologías específicas del proyecto y reglas de negocio bancarias.",
-        "Mentoría informal a compañeros de equipo en dudas técnicas y funcionales.",
-        "Participación activa en equipos Scrum: planificación, refinamiento, reuniones diarias y retrospectivas."
-      ]
-    }
-  ],
-  "technologies": "JavaScript, HTML, CSS, Visualizer Framework, Postman (APIs REST), SQL básico (insert, select, update, create table), Git (control de versiones), Jira (gestión ágil), React Js, MongoDB, Express.",
-  "projects": [
-    {
-      "title": "TuTurno-App",
-      "description": [
-        "Una aplicación web desarrollada con React y Bootstrap que permite a los usuarios solicitar turnos en una clínica veterinaria.",
-        "Sistema de login con envío de OTP por email y autenticación basada en tokens JWT.",
-        "Consumo de servicios REST mediante Axios para la comunicación entre frontend y backend.",
-        "Gestión de base de datos MongoDB con NodeJS, Express y Mongoose para almacenar información de turnos, usuarios, servicios y profesionales.",
-        "Envío automático de confirmaciones de turno por correo electrónico."
-      ],
-      "image": "/tuTurnoApp es.jpg",
-      "repo": "https://github.com/frbeltramino/tu-turno-app",
-      "demo": "https://tuturno-app.netlify.app/"
+      "label": "6+ Años",
+      "desc": "Experiencia Profesional"
     },
     {
-      "title": "TuTurno-Admin",
+      "label": "Frontend",
+      "desc": "Especialista"
+    },
+    {
+      "label": "Banca",
+      "desc": "Experto en la Industria"
+    }
+  ],
+  "professionalDescription": [
+    "Construyendo experiencias digitales excepcionales con React, TypeScript y tecnologías web modernas. Más de 6 años creando soluciones escalables para aplicaciones bancarias y empresariales."
+  ],
+  "workHistory": "Historial de Trabajo",
+  "experiencePeriod": "Período de Experiencia",
+  "experiences": {
+    "title": "Desarrollador Frontend",
+    "company": "GlobalLogic",
+    "period": "Junio 2018 - Agosto 2025",
+    "experienceStart": "Junio 2018",
+    "experienceEnd": "Agosto 2025",
+    "description": [
+      "Desarrollo, testing y documentación de funcionalidades bancarias para aplicaciones web y móviles (Android / iOS).",
+      "Resolución de bugs y soporte a incidencias productivas (hotfixes).",
+      "Amplio conocimiento en tecnologías específicas del proyecto y reglas de negocio bancarias.",
+      "Mentoría informal a compañeros de equipo en dudas técnicas y funcionales.",
+      "Participación activa en equipos Scrum: planificación, refinamiento, reuniones diarias y retrospectivas."
+    ]
+  },
+  "technologies": [
+    {
+      "name": "JavaScript",
+      "color": "from-yellow-400 to-yellow-500"
+    },
+    {
+      "name": "React",
+      "color": "from-cyan-400 to-cyan-500"
+    },
+    {
+      "name": "TypeScript",
+      "color": "from-blue-500 to-blue-600"
+    },
+    {
+      "name": "HTML5",
+      "color": "from-orange-500 to-orange-600"
+    },
+    {
+      "name": "CSS3",
+      "color": "from-blue-400 to-blue-500"
+    },
+    {
+      "name": "Tailwind CSS",
+      "color": "from-teal-400 to-teal-500"
+    },
+    {
+      "name": "Node.js",
+      "color": "from-green-500 to-green-600"
+    },
+    {
+      "name": "Express",
+      "color": "from-slate-500 to-slate-600"
+    },
+    {
+      "name": "MongoDB",
+      "color": "from-emerald-500 to-emerald-600"
+    },
+    {
+      "name": "MySQL",
+      "color": "from-blue-600 to-blue-700"
+    },
+    {
+      "name": "Git",
+      "color": "from-orange-600 to-red-500"
+    },
+    {
+      "name": "REST APIs",
+      "color": "from-purple-500 to-purple-600"
+    },
+    {
+      "name": "Bootstrap",
+      "color": "from-violet-500 to-violet-600"
+    },
+    {
+      "name": "Material UI",
+      "color": "from-blue-500 to-blue-600"
+    }
+  ],
+  "technologies&tools": "Tecnologías & Herramientas",
+  "technologiesDescription": "Las tecnologías con las que trabajo a diario para crear aplicaciones web modernas y escalables",
+  "alsoExperiencedWith": "También experiencia con",
+  "projects": [
+    {
+      "title": "AgroHuracán",
       "description": [
-        "Aplicación web desarrollada con React y Material-UI que permite a los administradores gestionar turnos, servicios, profesionales y feriados.",
-        "Consumo de servicios REST mediante Axios para la comunicación entre el panel administrativo y el backend.",
-        "Autenticación y control de acceso implementados con tokens JWT para garantizar la seguridad de los datos.",
-        "Interfaz moderna y responsive creada con Material-UI, priorizando usabilidad y consistencia visual.",
-        "Gestión centralizada de información utilizando NodeJS, Express y MongoDB en el servidor."
+        "Aplicación para administrar campañas agricolas online construida con React + TypeScript, Tailwind CSS y shadcn/ui.",
+        "Sistema de login con autenticación basada en tokens JWT. Con usuarios con rol admin y user",
+        "Consumo de servicios REST mediante Axios para la comunicación entre frontend y backend.",
+        "Gestión de base de datos MySQL creada para la administración de datos de campañas, lotes, cultivos, stock, ventas.",
+        "Tablas maestras por usuario de proveedores, lotes, gastos variables entre otras"
       ],
-      "image": "/tuTurnoAdmin es.jpg",
-      "repo": "https://github.com/frbeltramino/tu-turno-admin",
-      "demo": "https://tuturno-admin.netlify.app/auth/login"
+      "images": [
+        "/dashboard_agro.jpg",
+        "/campaigns_agro.jpg",
+        "/stock_agro.png",
+        "/ventas_agro.png"
+      ],
+      "repo": "https://github.com/frbeltramino/agro-app-frontend",
+      "demo": "https://agroappfjb.netlify.app/auth/login"
     },
     {
       "title": "Teslo | Shop",
@@ -62,73 +138,60 @@
         "Consumo de servicios REST mediante Axios para la comunicación entre frontend y backend.",
         "Gestión de base de datos PostgresSQL creada en nest para la administración de datos de usuarios y productos."
       ],
-      "image": "/TesloShopApp.jpg",
-      "video": "/TesloShopVideo.webm",
+      "images": [
+        "/TesloShopApp.jpg",
+        "/dashboard_teslo.jpg",
+        "/dashboard_admin_teslo.png",
+        "/product_detail_teslo.png",
+        "/products_teslo.png"
+      ],
       "repo": "https://github.com/frbeltramino/teslo-shop-react-app",
       "demo": "https://teslo-shop-react-frb.netlify.app/"
+    },
+    {
+      "title": "TuTurno-App",
+      "description": [
+        "Una aplicación web desarrollada con React y Bootstrap que permite a los usuarios solicitar turnos en una clínica veterinaria.",
+        "Sistema de login con envío de OTP por email y autenticación basada en tokens JWT.",
+        "Consumo de servicios REST mediante Axios para la comunicación entre frontend y backend.",
+        "Gestión de base de datos MongoDB con NodeJS, Express y Mongoose para almacenar información de turnos, usuarios, servicios y profesionales.",
+        "Envío automático de confirmaciones de turno por correo electrónico."
+      ],
+      "images": [
+        "/tuTurnoApp es.jpg"
+      ],
+      "repo": "https://github.com/frbeltramino/tu-turno-app",
+      "demo": "https://tuturno-app.netlify.app/"
     }
   ],
-  "position": "Desarrollador Frontend",
   "technologiesTitle": "Tecnologías y herramientas",
-  "technologiesList": [
-    {
-      "name": "JavaScript",
-      "image": "/icons/javascript.svg"
-    },
-    {
-      "name": "HTML",
-      "image": "/icons/html5.svg"
-    },
-    {
-      "name": "CSS",
-      "image": "/icons/css3.svg"
-    },
-    {
-      "name": "Bootstrap",
-      "image": "/icons/bootstrap.svg"
-    },
-    {
-      "name": "Material UI",
-      "image": "/icons/mui.svg"
-    },
-    {
-      "name": "Postman (APIs REST)",
-      "image": "/icons/postman.svg"
-    },
-    {
-      "name": "Visualizer Framework",
-      "image": "/icons/visualizer.png"
-    },
-    {
-      "name": "MySQL",
-      "image": "/icons/mysql.svg"
-    },
-    {
-      "name": "Git (control de versiones)",
-      "image": "/icons/git.svg"
-    },
-    {
-      "name": "Jira (gestión ágil)",
-      "image": "/icons/jira.svg"
-    },
-    {
-      "name": "React Js",
-      "image": "/icons/react.svg"
-    },
-    {
-      "name": "MongoDB",
-      "image": "/icons/mongodb.svg"
-    },
-    {
-      "name": "Express",
-      "image": "/icons/express.svg"
-    },
-    {
-      "name": "NodeJS",
-      "image": "/icons/nodejs.svg"
-    }
-  ],
-  "footer": "Federico Beltramino. Todos los derechos reservados.",
   "repository": "Repositorio",
-  "demo": "Demo"
+  "demo": "Demo",
+  "contact": {
+    "title": "Trabajemos juntos",
+    "description": "¿Tienes un proyecto en mente o quieres hablar de oportunidades?\nMe encantaría escucharte. Creemos algo increíble juntos.",
+    "email": "Correo electrónico",
+    "location": "Ubicación",
+    "findMeOn": "Encuéntrame en",
+    "successTitle": "¡Mensaje enviado!",
+    "successMessage": "Me pondré en contacto contigo lo antes posible.",
+    "emailSubject": "Nuevo mensaje de tu portafolio 🚀",
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "message": "Mensaje",
+      "send": "Enviar mensaje",
+      "sending": "Enviando...",
+      "placeholder": {
+        "name": "Tu nombre",
+        "email": "tu@email.com",
+        "message": "Cuéntame sobre tu proyecto..."
+      }
+    }
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "builtWith": "Hecho con",
+    "andReact": "y React"
+  }
 }
