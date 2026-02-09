@@ -49,8 +49,8 @@ export default function ContactSection() {
   };
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/frbeltramino?tab=repositories', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/federico-beltramino-5b174215b/', label: 'LinkedIn' }
+    { icon: Github, href: t('githubLink'), label: 'GitHub' },
+    { icon: Linkedin, href: t('linkedinLink'), label: 'LinkedIn' }
   ];
 
   return (

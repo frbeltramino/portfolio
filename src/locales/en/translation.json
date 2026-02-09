@@ -9,12 +9,15 @@
   "emailCopied": "Email copied to clipboard",
   "phoneCopied": "Phone number copied to clipboard",
   "downloadCV": "Download CV",
+  "copyEmail": "Copy email",
   "professionalProfile": "Professional Profile",
   "getInTouch": "Get in Touch",
   "availableForProjects": "Available for new projects",
   "contactMe": "Contact Me",
   "viewProjects": "View Projects",
   "portfolio": "Portfolio",
+  "linkedinLink": "https://www.linkedin.com/in/federico-beltramino-5b174215b/",
+  "githubLink": "https://github.com/frbeltramino?tab=repositories",
   "featuredProjects": "Featured Projects",
   "projectsDescription": "A selection of my recent work showcasing full-stack development capabilities with modern technologies and best practices.",
   "highlights": [
@@ -140,7 +143,7 @@
       ],
       "images": [
         "/TesloShopApp.jpg",
-        "/dashboard_teslo.png",
+        "/dashboard_teslo.jpg",
         "/dashboard_admin_teslo.png",
         "/product_detail_teslo.png",
         "/products_teslo.png"

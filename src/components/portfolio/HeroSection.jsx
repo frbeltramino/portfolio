@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'sonner';
 
 export default function HeroSection() {
   const { t } = useTranslation();
@@ -116,7 +117,7 @@ export default function HeroSection() {
             className="flex items-center justify-center gap-6"
           >
             <a
-              href="https://github.com/frbeltramino"
+              href={t('githubLink')}
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300"
@@ -124,19 +125,24 @@ export default function HeroSection() {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href={t('linkedinLink')}
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300"
             >
               <Linkedin className="w-5 h-5" />
             </a>
-            <a
-              href="mailto:contact@example.com"
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText('frbeltra2@gmail.com');
+                toast.success(t('emailCopied'));
+              }}
+              aria-label="Copiar email"
+              title="Copiar email"
               className="p-3 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300"
             >
               <Mail className="w-5 h-5" />
-            </a>
+            </button>
           </motion.div>
         </motion.div>
 

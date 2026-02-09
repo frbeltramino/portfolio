@@ -1,11 +1,43 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import {
+  SiJavascript,
+  SiReact,
+  SiTypescript,
+  SiHtml5,
+  SiCss3,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiMysql,
+  SiGit,
+  SiBootstrap,
+  SiMui,
+} from 'react-icons/si';
+
+import { TbApi } from 'react-icons/tb';
 
 export default function TechnologiesSection() {
   const { t } = useTranslation();
 
-  const technologies = t('technologies', { returnObjects: true });
+  const technologies = [
+    { name: "JavaScript", color: "from-yellow-400 to-yellow-500" },
+    { name: "React", color: "from-cyan-400 to-cyan-500" },
+    { name: "TypeScript", color: "from-blue-500 to-blue-600" },
+    { name: "HTML5", color: "from-orange-500 to-orange-600" },
+    { name: "CSS3", color: "from-blue-400 to-blue-500" },
+    { name: "Tailwind CSS", color: "from-teal-400 to-teal-500" },
+    { name: "Node.js", color: "from-green-500 to-green-600" },
+    { name: "Express", color: "from-slate-500 to-slate-600" },
+    { name: "MongoDB", color: "from-emerald-500 to-emerald-600" },
+    { name: "MySQL", color: "from-blue-600 to-blue-700" },
+    { name: "Git", color: "from-orange-600 to-red-500" },
+    { name: "REST APIs", color: "from-purple-500 to-purple-600" },
+    { name: "Bootstrap", color: "from-violet-500 to-violet-600" },
+    { name: "Material UI", color: "from-blue-500 to-blue-600" },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
