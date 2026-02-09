@@ -33,6 +33,7 @@ export default function ProjectCard({ project, index }) {
             key={activeImage}
             src={project.images[activeImage]}
             alt={`${project.title} screenshot ${activeImage + 1}`}
+            loading="lazy"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
 
