@@ -1,6 +1,7 @@
 import React from 'react';
 import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'sonner';
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -23,7 +24,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com/frbeltramino"
+              href={t('githubLink')}
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-500 hover:text-white transition-colors"
@@ -31,19 +32,24 @@ export default function Footer() {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href={t('linkedinLink')}
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-500 hover:text-white transition-colors"
             >
               <Linkedin className="w-5 h-5" />
             </a>
-            <a
-              href="mailto:contact@example.com"
-              className="text-slate-500 hover:text-white transition-colors"
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText('frbeltra2@gmail.com');
+                toast.success(t('emailCopied'));
+              }}
+              aria-label={t('copyEmail')}
+              title={t('copyEmail')}
+              className="p-3 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300"
             >
               <Mail className="w-5 h-5" />
-            </a>
+            </button>
           </div>
         </div>
       </div>

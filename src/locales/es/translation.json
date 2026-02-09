@@ -8,6 +8,7 @@
   "location": "Benidorm, España",
   "emailCopied": "Email copiado al portapapeles",
   "phoneCopied": "Número de teléfono copiado al portapapeles",
+  "copyEmail": "Copiar email",
   "downloadCV": "Descargar CV",
   "professionalProfile": "Perfil Profesional",
   "getInTouch": "Contacto",
@@ -15,6 +16,8 @@
   "contactMe": "Contáctame",
   "viewProjects": "Ver Proyectos",
   "portfolio": "Portafolio",
+  "linkedinLink": "https://www.linkedin.com/in/federico-beltramino-5b174215b/",
+  "githubLink": "https://github.com/frbeltramino?tab=repositories",
   "featuredProjects": "Proyectos Destacados",
   "projectsDescription": "Una selección de mis trabajos recientes mostrando capacidades de desarrollo full-stack con tecnologías modernas y buenas prácticas.",
   "highlights": [
