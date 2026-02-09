@@ -176,6 +176,7 @@
     "successTitle": "Message Sent!",
     "successMessage": "I'll get back to you as soon as possible.",
     "emailSubject": "New message from your portfolio 🚀",
+    "error": "Error sending message",
     "form": {
       "name": "Name",
       "email": "Email",
