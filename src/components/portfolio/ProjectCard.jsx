@@ -90,7 +90,7 @@ export default function ProjectCard({ project, index }) {
 
           {/* Tech badges floating */}
           <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-            {['React', 'TypeScript', 'Tailwind'].map((tech) => (
+            {project.technologies.map((tech) => (
               <span
                 key={tech}
                 className="px-3 py-1 text-xs font-medium rounded-full bg-white/90 backdrop-blur-sm text-slate-700 shadow-sm"
