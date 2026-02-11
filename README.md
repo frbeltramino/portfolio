@@ -36,8 +36,8 @@ Arquitectura basada en componentes reutilizables y separación clara por seccion
 
 Clonar el repositorio:
 
-git clone https://github.com/frbeltramino/tu-repo.git
-cd tu-repo
+git clone https://github.com/frbeltramino/portfolio
+cd portfolio
 
 
 Instalar dependencias:
