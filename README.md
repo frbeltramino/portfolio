@@ -30,16 +30,6 @@ React Hooks
 i18n (internacionalización)
 ESLint
 
-📂 Estructura del Proyecto
-src/
- ├── components/
- ├── sections/
- ├── translations/
- ├── hooks/
- ├── assets/
- └── App.tsx
-
-
 Arquitectura basada en componentes reutilizables y separación clara por secciones del portfolio.
 
 📦 Instalación y Uso
