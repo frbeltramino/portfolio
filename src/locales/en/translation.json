@@ -130,6 +130,11 @@
         "/stock_agro.png",
         "/ventas_agro.png"
       ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Tailwind"
+      ],
       "repo": "https://github.com/frbeltramino/agro-app-frontend",
       "demo": "https://agroappfjb.netlify.app/auth/login"
     },
@@ -140,6 +145,11 @@
         "Login system with JWT token-based authentication, with admin and user roles.",
         "Consumption of REST services via Axios for communication between frontend and backend.",
         "PostgreSQL database management created in NestJS to handle user and product data."
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Tailwind"
       ],
       "images": [
         "/TesloShopApp.jpg",
@@ -162,6 +172,11 @@
       ],
       "images": [
         "/tuTurnoApp es.jpg"
+      ],
+      "technologies": [
+        "React",
+        "JavaScript",
+        "Bootstrap"
       ],
       "repo": "https://github.com/frbeltramino/tu-turno-app",
       "demo": "https://tuturno-app.netlify.app/"

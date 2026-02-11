@@ -130,6 +130,11 @@
         "/stock_agro.png",
         "/ventas_agro.png"
       ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Tailwind"
+      ],
       "repo": "https://github.com/frbeltramino/agro-app-frontend",
       "demo": "https://agroappfjb.netlify.app/auth/login"
     },
@@ -148,6 +153,11 @@
         "/product_detail_teslo.png",
         "/products_teslo.png"
       ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Tailwind"
+      ],
       "repo": "https://github.com/frbeltramino/teslo-shop-react-app",
       "demo": "https://teslo-shop-react-frb.netlify.app/"
     },
@@ -162,6 +172,11 @@
       ],
       "images": [
         "/tuTurnoApp es.jpg"
+      ],
+      "technologies": [
+        "React",
+        "JavaScript",
+        "Bootstrap"
       ],
       "repo": "https://github.com/frbeltramino/tu-turno-app",
       "demo": "https://tuturno-app.netlify.app/"
