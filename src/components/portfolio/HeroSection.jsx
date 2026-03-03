@@ -17,7 +17,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
+    <section className="min-h-screen pb-24flex items-center justify-center relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
 
       {/* Optimized animated background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -29,7 +29,7 @@ export default function HeroSection() {
       {/* Grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:100px_100px]" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center mt-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -40,10 +40,10 @@ export default function HeroSection() {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 180 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8 relative z-20"
           >
             <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-            <span className="text-sm text-slate-300"> {t('availableForProjects')}</span>
+            <span className="text-sm text-slate-300">{t('availableForProjects')}</span>
           </motion.div>
 
           {/* Name */}
@@ -121,7 +121,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.85 }}
-            className="flex items-center justify-center gap-6"
+            className="relative z-10 flex items-center justify-center gap-6 pb-8"
           >
             <a href={t('githubLink')} target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300">
               <Github className="w-5 h-5" />
@@ -148,7 +148,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
